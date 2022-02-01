@@ -1,2 +1,47 @@
-# spring-db-app-development
 Работа с РСУБД в Spring
+=======================
+
+Prerequisites
+=============
+- [ ] JDK11
+- [ ] IntelliJ IDEA Ultimate
+- [ ] Lombok plugin + Enable annotation processing
+- [x] JPA Buddy plugin
+- [x] Docker
+- [ ] Forked this repo
+- [ ] Forked `agile-practices-application` repo
+
+Agenda <sup>24</sup>
+======
+
+Spring frameworks recap <sup>3</sup>
+-----------------------
+- [ ] Why Spring Core?
+- [ ] Why Spring MVC?
+- [ ] Why Spring Boot?
+- [ ] How to configure the app?
+- [ ] DataSource configuration 
+- [ ] Connection pool configuration
+- [ ] DB schema versioning
+- [ ] TestContainers library with external DB
+
+Ключевые концепции РСУБД и SQL recap <sup>2</sup>
+------------------------------------
+
+JDBC API <sup>3</sup>
+--------
+
+JDBC в Spring <sup>3</sup>
+-------------
+
+JDBC-транзакции <sup>2</sup>
+---------------
+
+JPA в Spring <sup>6</sup>
+------------
+
+JPA-транзакции <sup>2</sup>
+--------------
+
+Spring Data JPA <sup>3</sup>
+---------------
