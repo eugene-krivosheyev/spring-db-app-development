@@ -8,7 +8,7 @@ Prerequisites
 - [ ] Lombok plugin + Enable annotation processing
 - [x] JPA Buddy plugin
 - [x] Docker
-- [ ] Forked this repo
+- [x] Forked this repo
 - [ ] Forked [agile-practices-application](https://github.com/eugene-krivosheyev/agile-practices-application) repo
 
 Agenda <sup>24</sup>
