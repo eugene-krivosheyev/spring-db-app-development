@@ -1,6 +1,10 @@
 Работа с РСУБД в Spring
 =======================
 
+Recordings
+==========
+- [01.02](https://us02web.zoom.us/rec/share/q4hpzHjbMFa94VSmDToWICO01WT7oC7vFzILa-O2PKbI0oYH-obSCzyoEgh6bNyl.u7LnxFSTmL8auWAO)
+
 Prerequisites
 =============
 - [ ] JDK11
