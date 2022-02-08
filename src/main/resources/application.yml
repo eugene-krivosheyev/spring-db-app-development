@@ -1,11 +1,23 @@
 spring:
   profiles.active: it
   jpa.properties.hibernate.generate_statistics: true
+  datasource.hikari.pool-name: hikari-connection-pool
+  jpa:
+    show-sql: true
+    hibernate.ddl-auto: validate
+  liquibase: #https://javadeveloperzone.com/spring-boot/spring-boot-liquibase-example/
+    enabled: true
+    contexts: prod, qa
+    liquibase-schema: liquibase
+    user: ${spring.datasource.username}
+    password: ${spring.datasource.password}
+    change-log: classpath:/db-changelog.xml
+    rollback-file: liquibase-rollback.sql
 
 ---
 
 spring:
-  config.activate.on-profile: test
+  config.activate.on-profile: ut
   main.lazy-initialization: true
   autoconfigure.exclude:
     - org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
@@ -23,44 +35,21 @@ spring:
     username: APP
     password: APP
     hikari:
-      poolName: hikari-connection-pool
       maximumPoolSize: 2
       minimumIdle: 1
-  jpa:
-    show-sql: true
-    hibernate.ddl-auto: validate
-  liquibase: #https://javadeveloperzone.com/spring-boot/spring-boot-liquibase-example/
-    enabled: true
-    contexts: prod, qa
-    change-log: classpath:/db-changelog.xml
-    liquibaseSchema: liquibase
-    user: ${spring.datasource.username}
-    password: ${spring.datasource.password}
 
 ---
 
 spring:
-  config.activate.on-profile: preprod
-  sql.init:
-    platform: postgres
-    mode: always
+  config.activate.on-profile: st
   datasource:
     driverClassName: org.postgresql.Driver
-    url:  #should be externalized
-    username: #should be externalized
-    password: #should be externalized
+    url:  jdbc:postgresql://localhost:5432/postgres
+    username: postgres
+    password: postgres
     hikari:
-      poolName: hikari-connection-pool
       maximumPoolSize: 10
       minimumIdle: 2
       idleTimeout: 1800000
-  jpa.hibernate.ddl-auto: validate
   liquibase:
-    enabled: true
-    contexts: prod, qa
-    change-log: classpath:/db-changelog.xml
-    liquibaseSchema: liquibase
-    user: ${spring.datasource.username}
-    password: ${spring.datasource.password}
-    rollback-file: liquibase-rollback.sql
     test-rollback-on-update: true
