@@ -5,6 +5,7 @@ Recordings
 ==========
 - [01.02](https://us02web.zoom.us/rec/share/q4hpzHjbMFa94VSmDToWICO01WT7oC7vFzILa-O2PKbI0oYH-obSCzyoEgh6bNyl.u7LnxFSTmL8auWAO)
 - [03.02](https://us02web.zoom.us/rec/share/BrhwBcDwL1uXsSKRYcE-RRQeYkk4wbgOzOzdj1XY0bpvtbM2O8zdfl1BzJutepDz.bh8xuLJjPhGzRewg)
+- [08.02](https://us02web.zoom.us/rec/share/zcuIl-Otg07iUt-Xkm-dJZSYyTVX0fuoTrFgGAlWd0ycpHOZ3GlaQrKS_cfkEaxI.7jmDgKeP64XyqbkM)
 
 Prerequisites
 =============
