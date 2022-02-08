@@ -37,14 +37,25 @@ Spring frameworks recap <sup>3</sup>
 - [ ] База, каталог, схема
 - [ ] Объекты схемы
 - [ ] DDL vs DML
-- [ ] DB schema versioning with Spring Boot module
-- [ ] TestContainers library with external DB
 
 JDBC API <sup>3</sup>
 --------
+- [ ] Driver
+- [ ] Connection
+- [ ] Connection Pool
+- [ ] Statement and PreparedStatement
+- [ ] ResultSet
+- [ ] Closing resources
 
 JDBC в Spring <sup>3</sup>
 -------------
+- [ ] DB schema versioning with Spring Boot module
+- [ ] TestContainers library with external DB
+- [ ] @Repository and its API
+- [ ] @Autowired of dependent beans
+- [ ] DataSource
+- [ ] JdbcTemplate
+- [ ] RowMapper
 
 JDBC-транзакции <sup>2</sup>
 ---------------
