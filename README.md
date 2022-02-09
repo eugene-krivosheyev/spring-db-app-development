@@ -51,14 +51,29 @@ JDBC в Spring <sup>3</sup>
 -------------
 - [ ] DB schema versioning with Spring Boot module
 - [ ] TestContainers library with external DB
-- [ ] @Repository and its API
+- [ ] CRUD @Repository and its common API
 - [ ] @Autowired of dependent beans
-- [ ] DataSource
-- [ ] JdbcTemplate
-- [ ] RowMapper
+- [ ] [Key components](https://docs.spring.io/spring-framework/docs/current/reference/html/data-access.html#jdbc-choose-style)
+- DataSource
+- JdbcTemplate
+- RowMapper
+- SimpleJdbcInsert
+- [`org.springframework.jdbc.object`](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/jdbc/object/package-summary.html) package
 
-JDBC-транзакции <sup>2</sup>
----------------
+[JDBC-транзакции и Spring](https://www.marcobehler.com/guides/spring-transaction-management-transactional-in-depth) <sup>2</sup>
+------------------------
+- [ ] Понятие транзакции
+- [ ] Как включить в raw JDBC
+- [ ] Уровни изоляции транзакций
+- [ ] Управление изоляцией в SQL-запросе: `FOR UPDATE`/`FOR SHARE`
+- [ ] [Управление транзакциями в Spring](https://docs.spring.io/spring-framework/docs/current/reference/html/data-access.html#transaction)
+- [ ] ThreadLocal magic
+- [ ] [Декларативное управление транзакциями в Spring](https://docs.spring.io/spring-framework/docs/current/reference/html/data-access.html#transaction-declarative-annotations)
+- [ ] Why declarative transactions?
+- Non-atomic operations within Repository
+- Propagation policy
+- Rollback policy
+- Abstraction for different tx managers: managed jdbc connections, JPA, JTA, etc.
 
 JPA в Spring <sup>6</sup>
 ------------

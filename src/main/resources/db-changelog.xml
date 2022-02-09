@@ -10,7 +10,7 @@
                 CREATED timestamp not null default CURRENT_TIMESTAMP,
                 ENABLED boolean not null default TRUE
             );
-            create unique index CLIENT_LOGIN_INDEX on CLIENT(LOGIN);
+            create index CLIENT_LOGIN_INDEX on CLIENT(LOGIN);
 
             create table ACCOUNT (
                 ID bigint not null generated always as identity primary key,

@@ -38,7 +38,8 @@ public class JdbcTemplateClientRepository implements ClientRepository {
                 },
                 generatedKeyHolder
         );
-        return generatedKeyHolder.getKey().longValue();
+
+        return (Long) generatedKeyHolder.getKeys().get("id"); // can use getKey() if not PG DB
     }
 
     public Collection<Client> findAllClients() throws SQLException {

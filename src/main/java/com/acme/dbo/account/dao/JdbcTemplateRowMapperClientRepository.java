@@ -28,8 +28,11 @@ public class JdbcTemplateRowMapperClientRepository implements ClientRepository {
 
     @PostConstruct
     public void init() {
-        simpleJdbcInsert = new SimpleJdbcInsert(jdbcTemplate).withTableName("CLIENT").usingGeneratedKeyColumns("ID", "CREATED");
         clientRowMapper = new ClientRowMapper();
+        simpleJdbcInsert = new SimpleJdbcInsert(jdbcTemplate)
+                .withTableName("CLIENT")
+                .usingColumns("login", "enabled")
+                .usingGeneratedKeyColumns("id");
     }
 
     @Override
