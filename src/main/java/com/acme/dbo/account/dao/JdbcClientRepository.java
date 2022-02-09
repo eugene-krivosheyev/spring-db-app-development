@@ -15,7 +15,7 @@ import java.util.Collection;
 
 import static lombok.AccessLevel.PRIVATE;
 
-
+@Primary
 @Repository
 @RequiredArgsConstructor
 @FieldDefaults(level = PRIVATE)

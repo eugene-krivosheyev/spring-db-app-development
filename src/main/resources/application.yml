@@ -36,7 +36,7 @@ spring:
     password: APP
     hikari:
       maximumPoolSize: 2
-      minimumIdle: 1
+      minimumIdle: 2
 
 ---
 
