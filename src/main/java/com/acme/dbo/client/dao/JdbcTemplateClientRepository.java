@@ -1,6 +1,6 @@
-package com.acme.dbo.account.dao;
+package com.acme.dbo.client.dao;
 
-import com.acme.dbo.account.domain.Client;
+import com.acme.dbo.client.domain.Client;
 import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
 import lombok.extern.slf4j.Slf4j;
@@ -14,6 +14,7 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Collection;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 import static lombok.AccessLevel.PRIVATE;
@@ -22,8 +23,8 @@ import static lombok.AccessLevel.PRIVATE;
 @RequiredArgsConstructor
 @FieldDefaults(level = PRIVATE)
 @Slf4j
+@SuppressWarnings("SpringJavaAutowiredFieldsWarningInspection")
 public class JdbcTemplateClientRepository implements ClientRepository {
-    @SuppressWarnings("SpringJavaAutowiredFieldsWarningInspection")
     @Autowired final JdbcTemplate jdbcTemplate;
 
     @Override
@@ -39,11 +40,10 @@ public class JdbcTemplateClientRepository implements ClientRepository {
                 generatedKeyHolder
         );
 
-        return (Long) generatedKeyHolder.getKeys().get("id"); // can use getKey() if not PG DB
+        return generatedKeyHolder.getKey().longValue(); // .getKeys().get("id") in case of PG
     }
 
     public Collection<Client> findAllClients() throws SQLException {
-        log.warn("findAllClients() using JdbcTemplateClientRepository");
         Object[] argsForPreparedStatement = null;
         return jdbcTemplate.queryForList("SELECT ID, LOGIN, ENABLED FROM CLIENT", argsForPreparedStatement)
                 .stream().map(recordMap -> new Client(
@@ -51,5 +51,16 @@ public class JdbcTemplateClientRepository implements ClientRepository {
                     (String) recordMap.get("LOGIN"),
                     (Boolean) recordMap.get("ENABLED")
                 )).collect(Collectors.toList());
+    }
+
+    @Override
+    public Optional<Client> findById(Long primaryKey) throws SQLException {
+        // TODO Note queryForObject is for single row/column queries!
+        return jdbcTemplate.queryForList("SELECT ID, LOGIN, ENABLED FROM CLIENT WHERE ID = ?", primaryKey)
+                .stream().map(recordMap -> new Client(
+                        (Long) recordMap.get("ID"),
+                        (String) recordMap.get("LOGIN"),
+                        (Boolean) recordMap.get("ENABLED")
+                )).findFirst();
     }
 }

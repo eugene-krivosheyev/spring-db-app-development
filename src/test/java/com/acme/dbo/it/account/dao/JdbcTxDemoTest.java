@@ -27,7 +27,7 @@ import static lombok.AccessLevel.PRIVATE;
 @ActiveProfiles("it") //TODO 'st'
 @FieldDefaults(level = PRIVATE)
 @Slf4j
-public class JdbcTxTest {
+public class JdbcTxDemoTest {
     @Autowired DataSource dataSource;
 
     @Test

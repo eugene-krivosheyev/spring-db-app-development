@@ -1,6 +1,6 @@
-package com.acme.dbo.account.dao;
+package com.acme.dbo.client.dao;
 
-import com.acme.dbo.account.domain.Client;
+import com.acme.dbo.client.domain.Client;
 import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
 import lombok.extern.slf4j.Slf4j;
@@ -13,6 +13,7 @@ import javax.annotation.PostConstruct;
 import java.sql.SQLException;
 import java.util.Collection;
 import java.util.Map;
+import java.util.Optional;
 
 import static lombok.AccessLevel.PRIVATE;
 
@@ -20,16 +21,16 @@ import static lombok.AccessLevel.PRIVATE;
 @RequiredArgsConstructor
 @FieldDefaults(level = PRIVATE)
 @Slf4j
-public class JdbcTemplateRowMapperClientRepository implements ClientRepository {
-    @SuppressWarnings("SpringJavaAutowiredFieldsWarningInspection")
+@SuppressWarnings("SpringJavaAutowiredFieldsWarningInspection")
+public class JdbcTemplateCustomRowMapperClientRepository implements ClientRepository {
     @Autowired final JdbcTemplate jdbcTemplate;
     SimpleJdbcInsert simpleJdbcInsert;
     ClientRowMapper clientRowMapper;
 
     @PostConstruct
     public void init() {
-        clientRowMapper = new ClientRowMapper();
-        simpleJdbcInsert = new SimpleJdbcInsert(jdbcTemplate)
+        clientRowMapper = new ClientRowMapper(); //TODO move to spring configuration
+        simpleJdbcInsert = new SimpleJdbcInsert(jdbcTemplate) //TODO move to spring configuration
                 .withTableName("CLIENT")
                 .usingColumns("login", "enabled")
                 .usingGeneratedKeyColumns("id");
@@ -47,7 +48,13 @@ public class JdbcTemplateRowMapperClientRepository implements ClientRepository {
 
     @Override
     public Collection<Client> findAllClients() throws SQLException {
-        final Object[] argsForPreparedStatement = null;
-        return jdbcTemplate.query("SELECT ID, LOGIN, ENABLED FROM CLIENT", clientRowMapper, argsForPreparedStatement);
+        //TODO NB Potential excessive resource allocation with `new` and thread-safety issue
+        return jdbcTemplate.query("SELECT ID, LOGIN, ENABLED FROM CLIENT", clientRowMapper, null);
+    }
+
+    @Override
+    public Optional<Client> findById(Long primaryKey) throws SQLException {
+        return jdbcTemplate.query("SELECT ID, LOGIN, ENABLED FROM CLIENT WHERE ID = ?", clientRowMapper, primaryKey)
+                .stream().findFirst();
     }
 }

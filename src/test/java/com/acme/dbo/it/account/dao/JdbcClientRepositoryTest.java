@@ -1,12 +1,14 @@
 package com.acme.dbo.it.account.dao;
 
-import com.acme.dbo.account.dao.ClientRepository;
-import com.acme.dbo.account.domain.Client;
+import com.acme.dbo.client.dao.ClientRepository;
+import com.acme.dbo.client.domain.Client;
 import lombok.experimental.FieldDefaults;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.test.context.ActiveProfiles;
 
 import java.sql.SQLException;
@@ -20,6 +22,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 @Slf4j
 public class JdbcClientRepositoryTest {
     @Autowired ClientRepository clients;
+    @Autowired JdbcTemplate jdbcTemplate;
 
     @Test
     public void shouldGetAllClientsWhenPrepopulatedDb() throws SQLException {
@@ -31,11 +34,19 @@ public class JdbcClientRepositoryTest {
     }
 
     @Test
+    public void shouldGetClientByIdWhenPrepopulatedDb() throws SQLException {
+        assertThat(clients.findById(1L).orElseThrow())
+                .isEqualTo(new Client(1L, "admin@acme.com", true));
+    }
+
+    @Test
     public void shouldGetClientWhenInserted() throws SQLException {
         Long clientId = clients.save(new Client(null,"dummy@email.com", true));
 
-        assertThat(clients.findAllClients()).contains(
-                new Client(clientId, "dummy@email.com", true)
+        assertThat(
+            jdbcTemplate.query("SELECT * FROM CLIENT WHERE ID = ?", new BeanPropertyRowMapper<>(Client.class), clientId)
+        ).contains(
+            new Client(clientId, "dummy@email.com", true)
         );
     }
 }

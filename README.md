@@ -60,6 +60,7 @@ JDBC в Spring <sup>3</sup>
 - JdbcTemplate
 - RowMapper
 - SimpleJdbcInsert
+- **NamedParameterJdbcTemplate**
 - [`org.springframework.jdbc.object`](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/jdbc/object/package-summary.html) package
 
 [JDBC-транзакции и Spring](https://www.marcobehler.com/guides/spring-transaction-management-transactional-in-depth) <sup>2</sup>

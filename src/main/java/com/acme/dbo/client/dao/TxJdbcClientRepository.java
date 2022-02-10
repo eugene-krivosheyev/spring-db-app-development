@@ -1,6 +1,6 @@
-package com.acme.dbo.account.dao;
+package com.acme.dbo.client.dao;
 
-import com.acme.dbo.account.domain.Client;
+import com.acme.dbo.client.domain.Client;
 import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
 import lombok.extern.slf4j.Slf4j;
@@ -14,6 +14,7 @@ import javax.sql.DataSource;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Optional;
 
 import static lombok.AccessLevel.PRIVATE;
 
@@ -22,8 +23,8 @@ import static lombok.AccessLevel.PRIVATE;
 @FieldDefaults(level = PRIVATE)
 @Slf4j
 @Transactional // TODO NB!
+@SuppressWarnings("SpringJavaAutowiredFieldsWarningInspection")
 public class TxJdbcClientRepository implements ClientRepository {
-    @SuppressWarnings("SpringJavaAutowiredFieldsWarningInspection")
     @Autowired final DataSource dataSource;
 
     @Override
@@ -72,6 +73,34 @@ public class TxJdbcClientRepository implements ClientRepository {
             }
 
             return clients;
+
+        } finally {
+            JdbcUtils.closeResultSet(clientsResultSet);
+            JdbcUtils.closeStatement(preparedStatement);
+            DataSourceUtils.releaseConnection(connection, dataSource);
+        }
+    }
+
+    @Override
+    public Optional<Client> findById(Long primaryKey) throws SQLException {
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
+        ResultSet clientsResultSet = null;
+
+        try {
+                connection = DataSourceUtils.getConnection(dataSource);
+                preparedStatement = connection.prepareStatement("SELECT ID, LOGIN, ENABLED FROM CLIENT WHERE ID = ?");
+
+                preparedStatement.setLong(1, primaryKey);
+                clientsResultSet = preparedStatement.executeQuery();
+
+                if (!clientsResultSet.next()) return Optional.empty();
+                return Optional.of(
+                        new Client(
+                                clientsResultSet.getLong("ID"),
+                                clientsResultSet.getString("LOGIN"),
+                                clientsResultSet.getBoolean("ENABLED"))
+                );
 
         } finally {
             JdbcUtils.closeResultSet(clientsResultSet);

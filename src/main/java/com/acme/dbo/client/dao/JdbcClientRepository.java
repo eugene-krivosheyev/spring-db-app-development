@@ -1,27 +1,26 @@
-package com.acme.dbo.account.dao;
+package com.acme.dbo.client.dao;
 
-import com.acme.dbo.account.domain.Client;
+import com.acme.dbo.client.domain.Client;
 import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Repository;
 
 import javax.sql.DataSource;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Optional;
 
 import static lombok.AccessLevel.PRIVATE;
 
-@Primary
 @Repository
 @RequiredArgsConstructor
 @FieldDefaults(level = PRIVATE)
 @Slf4j
+@SuppressWarnings("SpringJavaAutowiredFieldsWarningInspection")
 public class JdbcClientRepository implements ClientRepository {
-    @SuppressWarnings("SpringJavaAutowiredFieldsWarningInspection")
     @Autowired final DataSource dataSource;
 
     @Override
@@ -62,6 +61,27 @@ public class JdbcClientRepository implements ClientRepository {
             }
 
             return clients;
+        }
+    }
+
+    @Override
+    public Optional<Client> findById(Long primaryKey) throws SQLException {
+        try (
+                final Connection connection = dataSource.getConnection();
+                final PreparedStatement preparedStatement = connection.prepareStatement("SELECT ID, LOGIN, ENABLED FROM CLIENT WHERE ID = ?");
+        ) {
+
+            preparedStatement.setLong(1, primaryKey);
+            try(final ResultSet clientsResultSet = preparedStatement.executeQuery()) {
+
+                if (!clientsResultSet.next()) return Optional.empty();
+                return Optional.of(
+                        new Client(
+                                clientsResultSet.getLong("ID"),
+                                clientsResultSet.getString("LOGIN"),
+                                clientsResultSet.getBoolean("ENABLED"))
+                );
+            }
         }
     }
 }

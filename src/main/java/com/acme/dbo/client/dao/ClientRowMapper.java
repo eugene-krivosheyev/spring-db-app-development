@@ -1,6 +1,6 @@
-package com.acme.dbo.account.dao;
+package com.acme.dbo.client.dao;
 
-import com.acme.dbo.account.domain.Client;
+import com.acme.dbo.client.domain.Client;
 import org.springframework.jdbc.core.RowMapper;
 
 import java.sql.ResultSet;
