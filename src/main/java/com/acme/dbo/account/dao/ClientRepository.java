@@ -6,6 +6,6 @@ import java.sql.SQLException;
 import java.util.Collection;
 
 public interface ClientRepository {
-    Long save(Client toSave) throws SQLException;
+    Long save(Client clientDto) throws SQLException;
     Collection<Client> findAllClients() throws SQLException;
 }

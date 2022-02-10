@@ -45,6 +45,7 @@ JDBC API <sup>3</sup>
 - [ ] Connection Pool
 - [ ] Statement and PreparedStatement
 - [ ] ResultSet
+- [ ] [Java to SQL types mapping](https://docs.oracle.com/javase/1.5.0/docs/guide/jdbc/getstart/table8.5.html)
 - [ ] Closing resources
 
 JDBC в Spring <sup>3</sup>
