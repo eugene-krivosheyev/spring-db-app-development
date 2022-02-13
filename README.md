@@ -67,10 +67,10 @@ JDBC в Spring <sup>3</sup>
 ------------------------
 - [ ] Понятие транзакции
 - [ ] Как включить в raw JDBC
-- [ ] Уровни изоляции транзакций
-- [ ] Управление изоляцией в SQL-запросе: `FOR UPDATE`/`FOR SHARE`
+- [ ] Уровни изоляции транзакций для всех запросов через данное соединение
+- [ ] Управление изоляцией в самом SQL-запросе: `FOR UPDATE`/`FOR SHARE`
 - [ ] [Управление транзакциями в Spring](https://docs.spring.io/spring-framework/docs/current/reference/html/data-access.html#transaction)
-- [ ] ThreadLocal magic
+- [ ] "ThreadLocal" magic
 - [ ] [Декларативное управление транзакциями в Spring](https://docs.spring.io/spring-framework/docs/current/reference/html/data-access.html#transaction-declarative-annotations)
 - [ ] Why declarative transactions?
 - Non-atomic operations within Repository
@@ -80,9 +80,44 @@ JDBC в Spring <sup>3</sup>
 
 JPA в Spring <sup>6</sup>
 ------------
+- [ ] Управление авто-конфигурацией ORM в конфиге Spring Boot
+- [ ] Архитектура ORM: JPA & JPA Provider
+- Entity vs DTO
+- Persistence Context 
+- [ ] JPA API 
+- EntityManager
+- Entity
+- OQL-запросы
+- Criteria API
+- [ ] Логическая конфигурация Entity
+- первичный ключ
+- ленивость полей
+- [связи и ленивость](https://www.baeldung.com/hibernate-lazy-eager-loading)
+- наследование
+- [ ] Физическая конфигурация Entity
+- Таблицы
+- Поля
+- Индексы
+- [ ] Validation API
+- Когда активируется валидация (спойлер: не единожды)
+- Кто валидирует
+- Как описать правила валидации
+- [ ] Caching API
+- ORM точно кешируют объекты по своей архитектуре
+- ORM могут [кешировать Persistence Contexts](https://www.tutorialspoint.com/hibernate/hibernate_caching.htm) с итоговыми [тремя уровнями кеширования](https://habr.com/ru/post/135176/) 
 
 JPA-транзакции <sup>2</sup>
 --------------
+- [ ] Принципиально иная реализация транзакций в ORM vs JDBC
+- [ ] Optimistic vs Pessimistic стратегии
+- [ ] Поле версии у сущностей
+- [ ] Управление транзакциями в Spring Boot конфигурации
 
 Spring Data JPA <sup>3</sup>
 ---------------
+- [ ] Задачи автогенерации
+- [ ] Декларация Spring Data Repository
+- [ ] Что наследуем
+- [ ] Как можем задать свои методы на соглашениях
+- [ ] Как можем задать свои методы на OQL-запросе
+- [x] Генерация контроллеров

@@ -38,9 +38,8 @@ spring:
     hikari:
       maximumPoolSize: 2
       minimumIdle: 2
-  autoconfigure.exclude:
-    - org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration
-    - org.springframework.boot.autoconfigure.data.jpa.JpaRepositoriesAutoConfiguration
+  jpa.properties:
+    hibernate.dialect: org.hibernate.dialect.DerbyTenSevenDialect
 
 ---
 
@@ -55,5 +54,7 @@ spring:
       maximumPoolSize: 10
       minimumIdle: 2
       idleTimeout: 1800000
+  jpa.properties:
+    hibernate.dialect: org.hibernate.dialect.PostgreSQL9Dialect
   liquibase:
     test-rollback-on-update: true

@@ -14,7 +14,7 @@
 
             create table ACCOUNT (
                 ID bigint not null generated always as identity primary key,
-                AMOUNT float not null,
+                AMOUNT decimal not null,
                 CREATE_STAMP timestamp not null default CURRENT_TIMESTAMP,
                 CLIENT_ID bigint not null constraint ACCOUNT_CLIENT_FK references CLIENT
                 on update restrict on delete restrict

@@ -11,16 +11,18 @@ import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.test.context.ActiveProfiles;
 
+import javax.transaction.Transactional;
 import java.sql.SQLException;
 
 import static lombok.AccessLevel.PRIVATE;
 import static org.assertj.core.api.Assertions.assertThat;
 
-@SpringBootTest // @JdbcTest issue
+@SpringBootTest // vs @JdbcTest
 @ActiveProfiles("it")
 @FieldDefaults(level = PRIVATE)
 @Slf4j
-public class JdbcClientRepositoryTest {
+@Transactional // because of EM API
+public class ClientRepositoryTest {
     @Autowired ClientRepository clients;
     @Autowired JdbcTemplate jdbcTemplate;
 
