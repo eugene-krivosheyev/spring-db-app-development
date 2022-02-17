@@ -8,6 +8,7 @@ Recordings
 - [08.02](https://us02web.zoom.us/rec/share/zcuIl-Otg07iUt-Xkm-dJZSYyTVX0fuoTrFgGAlWd0ycpHOZ3GlaQrKS_cfkEaxI.7jmDgKeP64XyqbkM)
 - [10.02](https://us02web.zoom.us/rec/share/lIf7yuJ2gbuh1I8VA2s41DibdN7HW255Dm9DVRKvt-L8Q2lYoPTq2s1JFWW-pmLQ.7y82kPHzPjn1KpsY)
 - [15.02](https://us02web.zoom.us/rec/share/4s8WDwWpBE0SZ4_0yfkaPUZS1NZg4lZ1gHndYTCRd-BUFV7DQcXMDoQumfxYSz-x.K_Bv8TU99hMmSREr)
+- [17.02](https://us02web.zoom.us/rec/share/LguNjvhbvodTYGiGI3koHAdTQ93DtE5L3sSU1oXLiNY5ywlqUcHa6M5vNv_rdp32.KvO6g2-XCF0Oe0_H)
 
 Prerequisites
 =============
