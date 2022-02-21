@@ -23,6 +23,7 @@ spring:
     - org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
     - org.springframework.boot.autoconfigure.jdbc.DataSourceTransactionManagerAutoConfiguration
     - org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration
+    - org.springframework.boot.autoconfigure.transaction.TransactionAutoConfiguration # @AutoConfigureAfter DS_TMAC and HJ_TMAC ^
     - org.springframework.boot.autoconfigure.data.jpa.JpaRepositoriesAutoConfiguration
 
 ---
@@ -40,6 +41,11 @@ spring:
       minimumIdle: 2
   jpa.properties:
     hibernate.dialect: org.hibernate.dialect.DerbyTenSevenDialect
+
+logging:
+  level:
+    org.springframework.orm.jpa: TRACE
+    org.springframework.transaction: TRACE
 
 ---
 

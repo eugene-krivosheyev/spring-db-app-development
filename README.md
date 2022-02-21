@@ -65,28 +65,35 @@ JDBC в Spring <sup>3</sup>
 - **NamedParameterJdbcTemplate**
 - [`org.springframework.jdbc.object`](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/jdbc/object/package-summary.html) package
 
-[JDBC-транзакции и Spring](https://www.marcobehler.com/guides/spring-transaction-management-transactional-in-depth) <sup>2</sup>
+[Транзакции в Spring](https://www.marcobehler.com/guides/spring-transaction-management-transactional-in-depth) <sup>2</sup>
 ------------------------
-- [ ] Понятие транзакции
-- [ ] Как включить в raw JDBC
-- [ ] Уровни изоляции транзакций для всех запросов через данное соединение
-- [ ] Управление изоляцией в самом SQL-запросе: `FOR UPDATE`/`FOR SHARE`
-- [ ] [Управление транзакциями в Spring](https://docs.spring.io/spring-framework/docs/current/reference/html/data-access.html#transaction)
-- [ ] "ThreadLocal" magic
-- [ ] [Декларативное управление транзакциями в Spring](https://docs.spring.io/spring-framework/docs/current/reference/html/data-access.html#transaction-declarative-annotations)
+- [ ] Понятие транзакции в Spring
+- TX в JDBC
+- TX в JPA
+- `TransactionManager` implementations
+- [ ] Как управлять транзакциями в raw JDBC
+- Уровни изоляции транзакций для всех запросов через данное соединение
+- Управление изоляцией в самом SQL-запросе: `FOR UPDATE`/`FOR SHARE`
+
+- [ ] [Как управлять транзакциями в Spring](https://docs.spring.io/spring-framework/docs/current/reference/html/data-access.html#transaction)
+- `ThreadLocal` magic
+- [Декларативное управление транзакциями в Spring](https://docs.spring.io/spring-framework/docs/current/reference/html/data-access.html#transaction-declarative-annotations)
+- [Кто реализует декларативную магию?](https://habr.com/ru/post/532000/)
+- [Декларативное управление поведением при ошибках](https://www.baeldung.com/transaction-configuration-with-jpa-and-spring)
 - [ ] Why declarative transactions?
 - Non-atomic operations within Repository
 - Propagation policy
 - Rollback policy
 - Abstraction for different tx managers: managed jdbc connections, JPA, JTA, etc.
+- [ ] [Типовые ошибки](https://habr.com/ru/company/otus/blog/574470/)
 
 JPA в Spring <sup>6</sup>
 ------------
 - [ ] Управление авто-конфигурацией ORM в конфиге Spring Boot
 - [ ] Архитектура ORM: JPA & JPA Provider
-- Entity vs DTO
+- Entity vs ValueObject/DTO
 - Persistence Context 
-- [ ] JPA API 
+- [ ] [JPA API](https://www.tutorialspoint.com/jpa/jpa_introduction.htm)
 - EntityManager
 - Entity
 - OQL-запросы
@@ -105,8 +112,8 @@ JPA в Spring <sup>6</sup>
 - Кто валидирует
 - Как описать правила валидации
 - [ ] Caching API
-- ORM точно кешируют объекты по своей архитектуре
-- ORM могут [кешировать Persistence Contexts](https://www.tutorialspoint.com/hibernate/hibernate_caching.htm) с итоговыми [тремя уровнями кеширования](https://habr.com/ru/post/135176/) 
+- ORM кешируют объекты по своей архитектуре
+- ORM так же могут [кешировать Persistence Contexts](https://www.tutorialspoint.com/hibernate/hibernate_caching.htm) с итоговыми [тремя уровнями кеширования](https://habr.com/ru/post/135176/) 
 
 JPA-транзакции <sup>2</sup>
 --------------

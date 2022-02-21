@@ -33,7 +33,7 @@ public class SpringTxTest {
     static final String SQL_SELECT_CLIENTS_COUNT_BY_LOGIN = "SELECT COUNT(*) FROM CLIENT WHERE LOGIN = ?";
     static final String DUMMY_LOGIN = "dummy login";
 
-    @Autowired TxJdbcClientRepository txJdbcClientRepository;
+    @Autowired TxJdbcClientRepository txJdbcClientRepository; // TODO NB! pure implementation
     @Autowired JdbcTemplateClientRepository jdbcTemplateClientRepository;
     @Autowired JdbcTemplateCustomRowMapperClientRepository jdbcTemplateCustomRowMapperClientRepository;
     @Autowired NamedParameterJdbcTemplateBeanRowMapperClientRepository namedParameterJdbcTemplateBeanRowMapperClientRepository;
