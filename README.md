@@ -73,6 +73,7 @@ JDBC в Spring <sup>3</sup>
 - `TransactionManager` implementations
 - [ ] Как управлять транзакциями в raw JDBC
 - Уровни изоляции транзакций для всех запросов через данное соединение
+- Архитектура системы и изоляция транзакций: batch c логикой в БД, batch с логикой в приложении, интерактивные
 - Управление изоляцией в самом SQL-запросе: `FOR UPDATE`/`FOR SHARE`
 
 - [ ] [Как управлять транзакциями в Spring](https://docs.spring.io/spring-framework/docs/current/reference/html/data-access.html#transaction)
