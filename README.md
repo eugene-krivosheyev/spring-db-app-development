@@ -94,33 +94,40 @@ JPA в Spring <sup>6</sup>
 - [ ] Архитектура ORM: JPA & JPA Provider
 - Entity vs ValueObject/DTO
 - Persistence Context 
+- Attaching and Detaching entities
+
 - [ ] [JPA API](https://www.tutorialspoint.com/jpa/jpa_introduction.htm)
 - EntityManager
 - Entity
 - OQL-запросы
 - Criteria API
+
 - [ ] Логическая конфигурация Entity
 - первичный ключ
 - ленивость полей
 - [связи и ленивость](https://www.baeldung.com/hibernate-lazy-eager-loading)
+- опасность возврата detached сущностей с lazy-связями
 - наследование
+
 - [ ] Физическая конфигурация Entity
 - Таблицы
 - Поля
 - Индексы
+
 - [ ] Validation API
 - Когда активируется валидация (спойлер: не единожды)
 - Кто валидирует
 - Как описать правила валидации
+
 - [ ] Caching API
 - ORM кешируют объекты по своей архитектуре
 - ORM так же могут [кешировать Persistence Contexts](https://www.tutorialspoint.com/hibernate/hibernate_caching.htm) с итоговыми [тремя уровнями кеширования](https://habr.com/ru/post/135176/) 
 
 JPA-транзакции <sup>2</sup>
 --------------
-- [ ] Принципиально иная реализация транзакций в ORM vs JDBC
-- [ ] Optimistic vs Pessimistic стратегии
-- [ ] Поле версии у сущностей
+- [ ] [Принципиально иная реализация транзакций в ORM vs JDBC](https://vladmihalcea.com/optimistic-locking-version-property-jpa-hibernate/)
+- [ ] [Optimistic](https://www.baeldung.com/jpa-optimistic-locking) vs [Pessimistic](https://www.baeldung.com/jpa-pessimistic-locking) стратегии
+- [ ] Поле версии у сущностей 
 - [ ] Управление транзакциями в Spring Boot конфигурации
 
 Spring Data JPA <sup>3</sup>
