@@ -1,142 +1,157 @@
 Работа с РСУБД в Spring
 =======================
-
-Recordings
-==========
-- [01.02](https://us02web.zoom.us/rec/share/q4hpzHjbMFa94VSmDToWICO01WT7oC7vFzILa-O2PKbI0oYH-obSCzyoEgh6bNyl.u7LnxFSTmL8auWAO)
-- [03.02](https://us02web.zoom.us/rec/share/BrhwBcDwL1uXsSKRYcE-RRQeYkk4wbgOzOzdj1XY0bpvtbM2O8zdfl1BzJutepDz.bh8xuLJjPhGzRewg)
-- [08.02](https://us02web.zoom.us/rec/share/zcuIl-Otg07iUt-Xkm-dJZSYyTVX0fuoTrFgGAlWd0ycpHOZ3GlaQrKS_cfkEaxI.7jmDgKeP64XyqbkM)
-- [10.02](https://us02web.zoom.us/rec/share/lIf7yuJ2gbuh1I8VA2s41DibdN7HW255Dm9DVRKvt-L8Q2lYoPTq2s1JFWW-pmLQ.7y82kPHzPjn1KpsY)
-- [15.02](https://us02web.zoom.us/rec/share/4s8WDwWpBE0SZ4_0yfkaPUZS1NZg4lZ1gHndYTCRd-BUFV7DQcXMDoQumfxYSz-x.K_Bv8TU99hMmSREr)
-- [17.02](https://us02web.zoom.us/rec/share/LguNjvhbvodTYGiGI3koHAdTQ93DtE5L3sSU1oXLiNY5ywlqUcHa6M5vNv_rdp32.KvO6g2-XCF0Oe0_H)
-- [22.03](https://us02web.zoom.us/rec/share/4WbRSbxlax_aOpbCFPSHvCD65z2KodTWeMuM8TLqTYycHi61hjCXUIuuiV-NEDDj.-LVLIdWGFTlrejG4)
-- [28.02](https://us02web.zoom.us/rec/share/EZcsgY9GpG-su3PH3TtbGFhcbqRtcBJl53Fjkc2bML4A8hCFT3-tGDj58r7qw0j0.q0nNKULLv-5T28eu)
+Real life problem oriented training that helps you become skilled database-driven backend developer.
 
 Prerequisites
 =============
 - [ ] JDK11
 - [ ] IntelliJ IDEA Ultimate
 - [ ] Lombok plugin + Enable annotation processing
-- [x] JPA Buddy plugin
-- [x] Docker
-- [x] Forked this repo
+- [ ] JPA Buddy plugin
+- [ ] Docker
+- [ ] Forked this repo
 - [ ] Forked [agile-practices-application](https://github.com/eugene-krivosheyev/agile-practices-application) repo
 
-Agenda <sup>24</sup>
+Agenda <sup>17 hours</sup>
 ======
 
-Spring frameworks recap <sup>3</sup>
------------------------
+How to test and debug database driven applications with IDEA? <sup>1,5</sup>
+-------------------------------------------------------------
+- [ ] How to connect to database with IDEA built-in DB client?
+- What is and How to set up driver? 
+- What is and How to set db connection URL?
+- [ ] What are common db objects?
+- DB User
+- Database
+- Catalog
+- Schema
+- Table, Raw/Record, Field/Column 
+- Trigger, Stored procedure
+- [ ] How to set up database with DDL SQL?
+- [ ] How to modify data with DML SQL?
+- [ ] How to select data from database?
+
+Why Spring frameworks and How to configure the application? <sup>1,5</sup>
+-----------------------------------------------------------
+- [ ] What is the common design for backend application?
 - [ ] Why Spring Core?
 - [ ] Why Spring MVC?
 - [ ] Why Spring Boot?
-- [ ] How to configure the app?
-- [ ] DataSource configuration 
-- [ ] Connection pool configuration
+- [ ] How to configure the whole Spring Boot application?
+- [ ] How application does connect to database?
+- [ ] How to configure DataSource configuration?
+- [ ] How to configure Connection Pool configuration?
+- [ ] How to switch test and production configurations with configuration profiles?
 
-Ключевые концепции РСУБД и SQL recap <sup>2</sup>
-------------------------------------
-- [ ] Подключение к БД из IDEA
-- [ ] Драйвер
-- [ ] JDBC URL и параметры подключения
-- [ ] База, каталог, схема
-- [ ] Объекты схемы
-- [ ] DDL vs DML
+How to set up automatic database schema updates? <sup>1</sup>
+------------------------------------------------
+- [ ] Why database migrations?
+- [ ] How to set up database migrations with stand-alone Liquibase?
+- [ ] How to set up database migrations with Liquibase as part of Spring Boot application? 
 
-JDBC API <sup>3</sup>
---------
-- [ ] Driver
-- [ ] Connection
-- [ ] Connection Pool
-- [ ] Statement and PreparedStatement
-- [ ] ResultSet
-- [ ] [Java to SQL types mapping](https://docs.oracle.com/javase/1.5.0/docs/guide/jdbc/getstart/table8.5.html)
-- [ ] Closing resources
+How to design common REST API backend with Spring MVC and Boot? <sup>1,5</sup>
+---------------------------------------------------------------
+- [ ] What is the common application architecture?
+- [ ] How to design Controllers?
+- [ ] How to design Services?
+- [ ] How to design DTOs?
+- MapStruct
+- ModelMapper
+- [ ] How to design Repository?
+- [ ] How to design Entities?
 
-JDBC в Spring <sup>3</sup>
--------------
-- [ ] DB schema versioning with Spring Boot module
-- [ ] TestContainers library with external DB
-- [ ] CRUD @Repository and its common API
-- [ ] @Autowired of dependent beans
-- [ ] [Key components](https://docs.spring.io/spring-framework/docs/current/reference/html/data-access.html#jdbc-choose-style)
-- DataSource
-- JdbcTemplate
-- RowMapper
-- SimpleJdbcInsert
-- **NamedParameterJdbcTemplate**
-- [`org.springframework.jdbc.object`](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/jdbc/object/package-summary.html) package
+How to implement common CRUD features with JPA? <sup>1,5</sup>
+-----------------------------------------------
+- [ ] Why JPA?
+- [ ] How to configure JPA provider with Spring Boot?
+- [ ] How to configure Entity class?
+- @Entity, @Id, @Transient
+- @Column, @Table, @Basic
+- @Index
+- [ ] How does JPA provider deal with objects as part of Persistence Context?
+- [ ] How to implement simple Create feature with JPA?
+- [ ] How to implement simple Read feature with JPA?
+- [ ] How to implement simple Update feature with JPA?
+- [ ] How to implement simple Delete feature with JPA?
+- [ ] How to trace JPA provider database activity for CRUD features?
 
-[Транзакции в Spring](https://www.marcobehler.com/guides/spring-transaction-management-transactional-in-depth) <sup>2</sup>
-------------------------
-- [ ] Понятие транзакции в Spring
-- TX в JDBC
-- TX в JPA
-- `TransactionManager` implementations
-- [ ] Как управлять транзакциями в raw JDBC
-- Уровни изоляции транзакций для всех запросов через данное соединение
-- Архитектура системы и изоляция транзакций: batch c логикой в БД, batch с логикой в приложении, интерактивные
-- Управление изоляцией в самом SQL-запросе: `FOR UPDATE`/`FOR SHARE`
+How to implement domain with complex identities? <sup>1</sup>
+------------------------------------------------
+- [ ] How to choose identity option?
+- Natural
+- Surrogate
+- [ ] How to implement composite key? 
+- [ ] How to implement @Generated strategies?
+- [ ] How to implement equals() and hashCode() methods?
 
-- [ ] [Как управлять транзакциями в Spring](https://docs.spring.io/spring-framework/docs/current/reference/html/data-access.html#transaction)
-- `ThreadLocal` magic
-- [Декларативное управление транзакциями в Spring](https://docs.spring.io/spring-framework/docs/current/reference/html/data-access.html#transaction-declarative-annotations)
-- [Кто реализует декларативную магию?](https://habr.com/ru/post/532000/)
-- [Декларативное управление поведением при ошибках](https://www.baeldung.com/transaction-configuration-with-jpa-and-spring)
-- [ ] Why declarative transactions?
-- Non-atomic operations within Repository
-- Propagation policy
-- Rollback policy
-- Abstraction for different tx managers: managed jdbc connections, JPA, JTA, etc.
-- [ ] [Типовые ошибки](https://habr.com/ru/company/otus/blog/574470/)
+How to implement domain with complex queries? <sup>1</sup>
+---------------------------------------------
+- [ ] How to get entities with common JPQL queries?
+- [ ] How to get entities with named JPQL queries?
+- [ ] How to get entities with native queries?
+- [ ] How to get entities with Criteria API?
 
-JPA в Spring <sup>6</sup>
-------------
-- [ ] Управление авто-конфигурацией ORM в конфиге Spring Boot
-- [ ] Архитектура ORM: JPA & JPA Provider
-- Entity vs ValueObject/DTO
-- Persistence Context 
-- Attaching and Detaching entities
+How to implement domain with complex associations? <sup>2</sup>
+--------------------------------------------------
+- [ ] Why entity embedding?
+- [ ] How to implement embedded entity?
+- [ ] Why entity associations?
+- [ ] How to implement unidirectional one-to-one association?
+- [ ] How to implement unidirectional one-to-many association?
+- [ ] How to implement unidirectional many-to-one association?
+- [ ] How to implement unidirectional many-to-many association?
+- [ ] How to implement bidirectional one-to-one association?
+- [ ] How to implement bidirectional one-to-many association?
+- [ ] How to implement bidirectional many-to-one association?
+- [ ] How to implement bidirectional many-to-many association?
+- [ ] How to choose Eager or Lazy loading?
 
-- [ ] [JPA API](https://www.tutorialspoint.com/jpa/jpa_introduction.htm)
-- EntityManager
-- Entity
-- OQL-запросы
-- Criteria API
+How to implement complex domain with inheritance? <sup>0,5</sup>
+-------------------------------------------------
+- [ ] Why inheritance?
+- [ ] How to implement inheritance strategies?
+- MappedSuperclass
+- Single Table
+- Joined Table
+- Table per Class
 
-- [ ] Логическая конфигурация Entity
-- первичный ключ
-- ленивость полей
-- [связи и ленивость](https://www.baeldung.com/hibernate-lazy-eager-loading)
-- опасность возврата detached сущностей с lazy-связями
-- наследование
+How to implement complex domain validation? <sup>0,5</sup>
+-------------------------------------------
+- [ ] Why data validation?
+- [ ] How to configure automatic data validation?
+- [ ] How to configure data validation rules?
 
-- [ ] Физическая конфигурация Entity
-- Таблицы
-- Поля
-- Индексы
+How to implement data consistency with JPA transactions? <sup>1,5</sup>
+--------------------------------------------------------
+- [ ] Why database consistency for concurrent and multi-source applications?
+- [ ] How does database itself implement consistency with JDBC transactions?
+- [ ] How to tune up JDBC transactions with isolation levels?
+- [ ] How does JPA provider implement consistency with JPA transactions?
+- optimistic strategy and @Version
+- pessimistic strategy
+- [ ] How to manage JPA transactions with program code?
+- [ ] How to manage JPA transactions with Spring configuration?
+- [ ] How to manage JPA transaction propagation across application?
 
-- [ ] Validation API
-- Когда активируется валидация (спойлер: не единожды)
-- Кто валидирует
-- Как описать правила валидации
+How to automate development with Spring Data JPA? <sup>1,5</sup>
+-------------------------------------------------
+- [ ] Why Spring Data JPA?
+- [ ] How to configure code generation?
+- [ ] How to implement common CRUD Repository?
+- [ ] How to declare custom Repository methods?
+- [ ] How to customize queries for Repository methods?
+- [ ] How to customize result types for Repository methods?
+- [ ] How to implement Pagination pattern?
 
-- [ ] Caching API
-- ORM кешируют объекты по своей архитектуре
-- ORM так же могут [кешировать Persistence Contexts](https://www.tutorialspoint.com/hibernate/hibernate_caching.htm) с итоговыми [тремя уровнями кеширования](https://habr.com/ru/post/135176/) 
-
-JPA-транзакции <sup>2</sup>
---------------
-- [ ] [Принципиально иная реализация транзакций в ORM vs JDBC](https://vladmihalcea.com/optimistic-locking-version-property-jpa-hibernate/)
-- [ ] [Optimistic](https://www.baeldung.com/jpa-optimistic-locking) vs [Pessimistic](https://www.baeldung.com/jpa-pessimistic-locking) стратегии
-- [ ] Поле версии у сущностей 
-- [ ] Управление транзакциями в Spring Boot конфигурации
-
-Spring Data JPA <sup>3</sup>
----------------
-- [ ] Задачи автогенерации
-- [ ] Декларация Spring Data Repository
-- [ ] Что наследуем
-- [ ] Как можем задать свои методы на соглашениях
-- [ ] Как можем задать свои методы на OQL-запросе
-- [x] Генерация контроллеров
+How to implement automated integration tests with Spring Boot and TestContainers? <sup>2</sup>
+---------------------------------------------------------------------------------
+- [ ] How to choose from Unit and Integration tests?
+- [ ] How to configure application for testing with profiles?
+- [ ] How does containerization work?
+- [ ] How to configure custom container with TestContainers API?
+- [ ] How to configure PostgreSQL container with TestContainers API?
+- [ ] How to configure PostgreSQL container with custom driver?
+- [ ] How to initialize database for test with simple DDL? 
+- [ ] How to initialize database for test with Liquibase provisioning?
+- [ ] How to make tests isolated with simple DML? 
+- [ ] How to make tests isolated with automatic transaction management? 
